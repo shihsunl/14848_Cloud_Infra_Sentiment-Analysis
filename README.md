@@ -140,4 +140,8 @@ docker pull $DOCKER_USER_ID/sentiment-analysis-logic
 - According to the sa-frontend load balancer, go to `http://sa-frontend External IP:80/` and test Sentiment Analyser (my example: `http://34.122.94.219:80/`)
 - ![Test Sentiment Analyser](Sentiment-Analysis/img/test_sentiment_analyser.png)
 
+## Reference
+- https://github.com/rinormaloku/k8s-mastery
+- https://www.freecodecamp.org/news/learn-kubernetes-in-under-3-hours-a-detailed-guide-to-orchestrating-containers-114ff420e882/
+
 
