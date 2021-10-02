@@ -131,6 +131,7 @@ docker pull $DOCKER_USER_ID/sentiment-analysis-logic
 
     6. Build docker image again and push to docker hub
         ```
+        npm run build
         docker build -f Dockerfile -t $DOCKER_USER_ID/sentiment-analysis-frontend .
         docker push $DOCKER_USER_ID/sentiment-analysis-frontend
         ```
