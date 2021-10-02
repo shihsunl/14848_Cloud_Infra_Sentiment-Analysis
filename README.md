@@ -10,7 +10,10 @@
         cd sa-frontend && command.sh
         ```
     3. After executing command.sh, build folder will be generated.
-    4. export DOCKER_USER_ID=<Your docker user ID>
+    4. export DOCKER_USER_ID: 
+        ```
+        export DOCKER_USER_ID=<<Your docker user ID>>
+        ```
     5. Build docker image: 
         ```
         docker build -f Dockerfile -t $DOCKER_USER_ID/sentiment-analysis-frontend .
@@ -123,6 +126,8 @@ docker pull $DOCKER_USER_ID/sentiment-analysis-logic
                 .then(data => this.setState(data));
         }
         ```
+        My example: sa-webapp load balancer IP is `34.69.59.95`
+
     6. Build docker image again and push to docker hub
         ```
         docker build -f Dockerfile -t $DOCKER_USER_ID/sentiment-analysis-frontend .
