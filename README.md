@@ -5,7 +5,10 @@
 ### sa-frontend preparation
 -
     1. Prepare NodeJS and NPM first. Please go to NodeJS official webside and install NodeJS and NPM: https://nodejs.org/en/download/
-    2. Go to sa-frontend folder and execute command.sh: `cd sa-frontend && command.sh`
+    2. Go to sa-frontend folder and execute command.sh: 
+        ```
+        cd sa-frontend && command.sh
+        ```
     3. After executing command.sh, build folder will be generated.
     4. export DOCKER_USER_ID=<Your docker user ID>
     5. Build docker image: 
@@ -56,8 +59,17 @@
 
 ## Google Kubernetes
 
+### Get docker images
+- Get docker images
+```
+export DOCKER_USER_ID=<Your docker user ID>
+docker pull $DOCKER_USER_ID/sentiment-analysis-frontend
+docker pull $DOCKER_USER_ID/sentiment-analysis-web-app
+docker pull $DOCKER_USER_ID/sentiment-analysis-logic
+```
+
 ### Create GKE Cluster
--
+- ![Create GKE Cluster](Sentiment-Analysis/img/cluster.png)
 
 ### Create GKE development
 -
@@ -88,12 +100,39 @@
         ```
     2. Create sa-webapp load balancer
         ```
-        kubectl create -f service-sa-frontend-lb.yaml
+        kubectl create -f service-sa-web-app-lb.yaml
         ```
     3. Create sa-logic service
         ```
-        kubectl create -f service-sa-frontend-lb.yaml
+        kubectl create -f service-sa-logic.yaml
         ```
     4. Check Load Balancer and Service
     ![Check Load Balancer and Service](Sentiment-Analysis/img/load_balancer.png)
+
+    5. Once the Load Balancer and Service are ready, modify `Sentiment-Analysis/sa-frontend/src/App.js`
+        ```
+        analyzeSentence() {
+            fetch('http://<<sa-webapp load balancer IP>>/sentiment', { 
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({sentence: this.textField.getValue()})
+            })
+                .then(response => response.json())
+                .then(data => this.setState(data));
+        }
+        ```
+    6. Build docker image again and push to docker hub
+        ```
+        docker build -f Dockerfile -t $DOCKER_USER_ID/sentiment-analysis-frontend .
+        docker push $DOCKER_USER_ID/sentiment-analysis-frontend
+        ```
+    7. Update docker image for sa-frontend-deployment (Rolling update):
+    ![Update docker image for sa-frontend-deployment](Sentiment-Analysis/img/rolling_update.png)
+
+## Test Sentiment Analyser
+- According to the sa-frontend load balancer, go to `http://sa-frontend External IP:80/` and test Sentiment Analyser (my example: `http://34.122.94.219:80/`)
+- ![Test Sentiment Analyser](Sentiment-Analysis/img/test_sentiment_analyser.png)
+
 
