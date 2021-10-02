@@ -7,7 +7,8 @@
     1. Prepare NodeJS and NPM first. Please go to NodeJS official webside and install NodeJS and NPM: https://nodejs.org/en/download/
     2. Go to sa-frontend folder and execute command.sh: 
         ```
-        cd sa-frontend && command.sh
+        cd 14848_Cloud_Infra_Sentiment-Analysis/Sentiment-Analysis/sa-frontend
+        ./command.sh
         ```
     3. After executing command.sh, build folder will be generated.
     4. export DOCKER_USER_ID: 
@@ -28,7 +29,7 @@
     1. Install JDK8 first. Please download the version 8u212-b10 from `https://github.com/frekele/oracle-java/releases`
     2. Packaging the Application into a Jar:
         ```
-        cd sa-webapp
+        cd 14848_Cloud_Infra_Sentiment-Analysis/Sentiment-Analysis/sa-webapp
         mvn install
         ```
     3. Build docker image:
@@ -45,7 +46,7 @@
     1. Install Python3 first.
     2. Go to sa-logic folder and install dependancies: 
         ```
-        cd sa-logic
+        cd 14848_Cloud_Infra_Sentiment-Analysis/Sentiment-Analysis/sa-logic
         python3 -m pip install -r requirements.txt
         python3 -m textblob.download_corpora
         ```
@@ -112,7 +113,7 @@ docker pull $DOCKER_USER_ID/sentiment-analysis-logic
     4. Check Load Balancer and Service
     ![Check Load Balancer and Service](Sentiment-Analysis/img/load_balancer.png)
 
-    5. Once the Load Balancer and Service are ready, modify `Sentiment-Analysis/sa-frontend/src/App.js`
+    5. Once the Load Balancer and Service are ready, modify `14848_Cloud_Infra_Sentiment-Analysis/Sentiment-Analysis/sa-frontend/src/App.js`
         ```
         analyzeSentence() {
             fetch('http://<<sa-webapp load balancer IP>>/sentiment', { 
