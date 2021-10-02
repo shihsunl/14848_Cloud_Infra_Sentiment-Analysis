@@ -3,6 +3,7 @@
 ## Docker image preparation
 
 ### sa-frontend preparation
+-
     1. Prepare NodeJS and NPM first. Please go to NodeJS official webside and install NodeJS and NPM: https://nodejs.org/en/download/
     2. Go to sa-frontend folder and execute command.sh: `cd sa-frontend && command.sh`
     3. After executing command.sh, build folder will be generated.
@@ -17,6 +18,7 @@
         ```
 
 ### sa-webapp preparation
+- 
     1. Install JDK8 first. Please download the version 8u212-b10 from `https://github.com/frekele/oracle-java/releases`
     2. Packaging the Application into a Jar:
         ```
@@ -33,6 +35,7 @@
         ```
 
 ### sa-logic preparation
+- 
     1. Install Python3 first.
     2. Go to sa-logic folder and install dependancies: 
         ```
@@ -49,12 +52,15 @@
         docker push $DOCKER_USER_ID/sentiment-analysis-logic
         ```
 
+-------
+
 ## Google Kubernetes
 
 ### Create GKE Cluster
-    -
+-
 
 ### Create GKE development
+-
     1. Go to GCP and open Cloud Shell
     2. git clone https://github.com/shihsunl/14848_Cloud_Infra_Sentiment-Analysis.git
     3. Create sa-frontend deployment
@@ -74,6 +80,7 @@
     ![Check Deployment](Sentiment-Analysis/img/development.png)
 
 ### Create GKE Load Balancer and Service
+-
     1. Create sa-frontend load balancer
         ```
         cd 14848_Cloud_Infra_Sentiment-Analysis/Sentiment-Analysis/resource-manifests
