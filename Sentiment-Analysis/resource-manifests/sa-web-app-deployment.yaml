@@ -21,7 +21,7 @@ spec:
         app: sa-web-app
     spec:
       containers:
-      - image: gcr.io/splendid-timer-325505/shihsunl/sentiment-analysis-web-app
+      - image: shihsunl/sentiment-analysis-web-app
         imagePullPolicy: Always
         name: sa-web-app
         env:

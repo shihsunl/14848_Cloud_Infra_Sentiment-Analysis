@@ -21,7 +21,7 @@ spec:
         app: sa-logic
     spec:
       containers:
-        - image: gcr.io/splendid-timer-325505/shihsunl/sentiment-analysis-logic
+        - image: shihsunl/sentiment-analysis-logic
           imagePullPolicy: Always
           name: sa-logic
           ports:
