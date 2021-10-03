@@ -146,7 +146,7 @@ docker pull $DOCKER_USER_ID/sentiment-analysis-logic
 - ![Test Sentiment Analyser](Sentiment-Analysis/img/test_sentiment_analyser.png)
 
 ## Code Inspection
-
+- https://www.youtube.com/watch?v=zZMlrE_T0h4
 
 ## Reference
 - https://github.com/rinormaloku/k8s-mastery
