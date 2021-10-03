@@ -1,5 +1,8 @@
 # 14848_Cloud_Infra_Sentiment-Analysis
 
+## System Structure
+- ![System Structure](Sentiment-Analysis/img/system_structure.png)
+
 ## Docker image preparation
 
 ### sa-frontend preparation
@@ -141,6 +144,9 @@ docker pull $DOCKER_USER_ID/sentiment-analysis-logic
 ## Test Sentiment Analyser
 - According to the sa-frontend load balancer, go to `http://sa-frontend External IP:80/` and test Sentiment Analyser (my example: `http://34.122.94.219:80/`)
 - ![Test Sentiment Analyser](Sentiment-Analysis/img/test_sentiment_analyser.png)
+
+## Code Inspection
+
 
 ## Reference
 - https://github.com/rinormaloku/k8s-mastery
