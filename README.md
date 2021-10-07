@@ -138,7 +138,7 @@ docker pull $DOCKER_USER_ID/sentiment-analysis-logic
         docker build -f Dockerfile -t $DOCKER_USER_ID/sentiment-analysis-frontend .
         docker push $DOCKER_USER_ID/sentiment-analysis-frontend
         ```
-    7. Update docker image for sa-frontend-deployment (Rolling update):
+    7. Update docker image for sa-frontend-deployment (You can use Rolling update or recreate a deployment):
     ![Update docker image for sa-frontend-deployment](Sentiment-Analysis/img/rolling_update.png)
 
 ## Test Sentiment Analyser
